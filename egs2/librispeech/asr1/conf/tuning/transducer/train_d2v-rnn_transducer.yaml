@@ -49,3 +49,8 @@ optim_conf:
     lr: 0.0005
     weight_decay: 0.000001
 scheduler: null
+
+unused_parameters: True
+frontend: null
+normalize: null
+specaug: null
