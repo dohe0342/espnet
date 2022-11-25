@@ -20,4 +20,4 @@ while True:
             #print('Warning: Modify Detected.') 
             os.system('./git.sh')
             lastmod[enum] = int(os.path.getmtime(dirToWatch)) 
-    time.sleep(0.5)
+    time.sleep(1.0)
