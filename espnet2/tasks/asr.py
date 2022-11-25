@@ -39,6 +39,7 @@ from espnet2.asr.encoder.rnn_encoder import RNNEncoder
 from espnet2.asr.encoder.transformer_encoder import TransformerEncoder
 from espnet2.asr.encoder.vgg_rnn_encoder import VGGRNNEncoder
 from espnet2.asr.encoder.wav2vec2_encoder import FairSeqWav2Vec2Encoder
+from espnet2.asr.encoder.data2vec_encoder import FairSeqData2VecEncoder
 from espnet2.asr.espnet_model import ESPnetASRModel
 from espnet2.asr.frontend.abs_frontend import AbsFrontend
 from espnet2.asr.frontend.default import DefaultFrontend
