@@ -7,8 +7,8 @@ path = './'
 for dirpath in os.walk(path):
     #if '.git' in dirpath[0] or 'lib' in dirpath[0] or 'bin' in dirpath[0] or 'build' in dirpath[0]:
     #    continue
-    if 'egs2' not in dirpath[0] or 'espnet2' not in dirpath[0]:
-        continue
+    #if 'egs2' not in dirpath[0] or 'espnet2' not in dirpath[0]:
+    #    continue
     dirToWatch = dirpath[0]+'/'
     lastmod.append(int(os.path.getmtime(dirToWatch)))
     dirToWatchList.append(dirToWatch)
