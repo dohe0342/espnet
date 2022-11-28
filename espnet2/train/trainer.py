@@ -646,8 +646,15 @@ class Trainer:
                         norm_type=grad_clip_type,
                     )
                     # PyTorch<=1.4, clip_grad_norm_ returns float value
-                    if not isinstance(grad_norm, torch.Tensor):
-                        grad_norm = torch.tensor(grad_norm)
+                else:
+                    grad_norm = 0
+                    for p in model.parameters():
+                        param_norm = p.grad.data.norm(2)
+                        grad_norm += param_norm.item() ** 2
+                    grad_norm = grad_norm ** (1. / 2)
+
+                if not isinstance(grad_norm, torch.Tensor):
+                    grad_norm = torch.tensor(grad_norm)
 
                 if not torch.isfinite(grad_norm):
                     logging.warning(
