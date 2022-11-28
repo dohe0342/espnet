@@ -168,8 +168,6 @@ class AdapterForLabelScpReader(collections.abc.Mapping):
     def __getitem__(self, key: str) -> np.ndarray:
         retval = self.loader[key]
 
-        print(retval)
-
         assert isinstance(retval, list)
         seq_len = len(retval)
         sample_time = np.zeros((seq_len, 2))
