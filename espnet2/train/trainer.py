@@ -639,11 +639,12 @@ class Trainer:
                     )
 
                 # compute the gradient norm to check if it is normal or not
-                grad_norm = torch.nn.utils.clip_grad_norm_(
-                    model.parameters(),
-                    max_norm=grad_clip,
-                    norm_type=grad_clip_type,
-                )
+                if grad_clip > 0.:
+                    grad_norm = torch.nn.utils.clip_grad_norm_(
+                        model.parameters(),
+                        max_norm=grad_clip,
+                        norm_type=grad_clip_type,
+                    )
                 # PyTorch<=1.4, clip_grad_norm_ returns float value
                 if not isinstance(grad_norm, torch.Tensor):
                     grad_norm = torch.tensor(grad_norm)
