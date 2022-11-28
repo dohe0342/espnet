@@ -1,0 +1,56 @@
+batch_type: numel
+batch_bins: 7200000
+accum_grad: 7
+max_epoch: 25
+patience: none
+init: none
+num_att_plot: 0
+
+val_scheduler_criterion:
+    - valid
+    - loss
+best_model_criterion:
+-   - valid
+    - loss
+    - min
+keep_nbest_models: 10
+
+model_conf:
+    ctc_weight: 0.3 
+    report_cer: True
+    report_wer: True
+
+freeze_param: [
+    "encoder.encoders.feature_extractor",
+    ]   
+
+input_size: 768 
+encoder: data2vec
+encoder_conf:
+    output_size: 768 
+    w2v_url: https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_small.pt
+    w2v_dir_path: ./models/
+    normalize_before: False
+    freeze_finetune_updates: 20000
+
+decoder: transducer
+decoder_conf:
+    rnn_type: lstm
+    num_layers: 1
+    hidden_size: 512 
+    dropout: 0.1 
+    dropout_embed: 0.2 
+
+joint_net_conf:
+    joint_space_size: 640 
+
+optim: adam
+optim_conf:
+    lr: 0.0005
+    weight_decay: 0.000001
+scheduler: null
+
+unused_parameters: True
+frontend: null
+normalize: null
+specaug: null
