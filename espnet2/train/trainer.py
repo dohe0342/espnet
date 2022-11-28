@@ -651,8 +651,7 @@ class Trainer:
                         try:
                             param_norm = p.grad.data.norm(2)
                             grad_norm += param_norm.item() ** 2
-                        except:
-                            pass
+                        except: pass
                     grad_norm = grad_norm ** (1. / 2)
 
                 # PyTorch<=1.4, clip_grad_norm_ returns float value
