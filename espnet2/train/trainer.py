@@ -650,9 +650,9 @@ class Trainer:
                     for p in model.parameters():
                         try:
                             param_norm = p.grad.data.norm(2)
+                            grad_norm += param_norm.item() ** 2
                         except:
-                            param_norm = 0.
-                        grad_norm += param_norm.item() ** 2
+                            continue
                     grad_norm = grad_norm ** (1. / 2)
 
                 # PyTorch<=1.4, clip_grad_norm_ returns float value
