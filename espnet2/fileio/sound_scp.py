@@ -42,7 +42,6 @@ class SoundScpReader(collections.abc.Mapping):
         wav = self.data[key]
         if self.normalize:
             # soundfile.read normalizes data to [-1,1] if dtype is not given
-            print('here!!!!!!!!1')
             array, rate = soundfile.read(wav, always_2d=self.always_2d)
         else:
             array, rate = soundfile.read(
