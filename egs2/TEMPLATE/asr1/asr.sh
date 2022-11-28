@@ -1124,7 +1124,7 @@ if ! "${skip_train}"; then
             --multiprocessing_distributed true -- \
             ${python} -m espnet2.bin.${asr_task}_train \
                 --use_preprocessor true \
-				--grad_clip 0.
+				--grad_clip 0.0 \
                 --bpemodel "${bpemodel}" \
                 --token_type "${token_type}" \
                 --token_list "${token_list}" \
