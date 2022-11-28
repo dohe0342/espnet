@@ -551,8 +551,6 @@ class ESPnetDataset(AbsDataset):
         # 2. [Option] Apply preprocessing
         #   e.g. espnet2.train.preprocessor:CommonPreprocessor
         if self.preprocess is not None:
-            print(self.preprocess)
-            exit()
             data = self.preprocess(uid, data)
 
         # 3. Force data-precision
